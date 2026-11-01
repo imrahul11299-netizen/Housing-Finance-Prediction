@@ -1,115 +1,84 @@
-# 🏠 Housing Finance Prediction Using Machine Learning
+# Housing Finance Prediction Using Machine Learning
 
-## 📌 Project Overview
+**Academic project | Data Analytics Programme, IIM Sirmaur × Masai**
 
-This project focuses on predicting housing finance approval decisions using a Decision Tree Classification model. It was developed as part of the **Data Analytics Programme at IIM Sirmaur × Masai**.
+## Overview
 
-The project uses applicant-related information, including age, income, employment type, loan requirements, property value, and financial indicators, to classify housing finance decisions.
+This project explores whether applicant and financial attributes can be used to classify housing finance decisions. A Decision Tree Classifier was developed and evaluated as part of a learning project.
 
-## 🎯 Objectives
+## Business Question
 
-* Analyze housing finance applicant data.
-* Clean and preprocess the dataset.
-* Encode categorical variables into numerical format.
-* Split the data into training and testing sets.
-* Build a Decision Tree Classification model.
-* Evaluate the model using accuracy and a confusion matrix.
-* Apply hyperparameter tuning to identify a suitable model configuration.
+Can historical applicant information help classify a housing finance decision, and how should the model's performance be evaluated before any real-world use?
 
-## 📂 Project Files
+## Project Objectives
 
-* `HousingFinance1.csv` — Dataset used for model development.
-* `HousingFinance1.pdf` — Project report containing code, workflow, visualizations, and results.
+- Inspect and prepare the dataset.
+- Encode categorical variables for model training.
+- Separate the data into training and test sets.
+- Train a Decision Tree Classifier.
+- Evaluate predictions with accuracy and a confusion matrix.
+- Explore hyperparameter tuning using cross-validation.
 
-## 🛠️ Technologies Used
+## Dataset and Files
 
-* **Python:** Programming language used for data analysis and machine learning.
-* **Pandas:** Data manipulation and dataset handling.
-* **NumPy:** Numerical operations.
-* **Matplotlib:** Data visualization.
-* **Seaborn:** Statistical visualizations.
-* **Scikit-learn:** Model building, data splitting, evaluation, and hyperparameter tuning.
-* **Google Colab:** Environment used to execute the Python code.
+- `HousingFinance1.csv` — dataset used for the analysis.
+- `HousingFinance1.pdf` — report containing the workflow, code, visualizations, and results.
 
-## ⚙️ Project Workflow
+The dataset is reported to contain **1,570 records and 23 original columns**. Confirm the dataset's source, licensing, and variable definitions before redistributing it or using it beyond coursework.
 
-### 1. Data Preprocessing
+## Tools
 
-Imported the dataset using Pandas and examined its structure, summary statistics, and missing values.
+- Python
+- Pandas and NumPy
+- Matplotlib and Seaborn
+- scikit-learn
+- Google Colab
 
-### 2. Data Encoding
+## Methodology
 
-Converted categorical variables into numerical representations using label encoding and dummy variables. This allowed the machine learning model to process categorical information.
+1. Load and inspect the dataset.
+2. Review missing values and variable types.
+3. Encode categorical variables.
+4. Define `Decision` as the target variable.
+5. Split data into training and test subsets using an 80:20 ratio (`random_state=10`).
+6. Train a Decision Tree Classifier.
+7. Evaluate the model and visualize its confusion matrix.
+8. Use `GridSearchCV` with cross-validation to explore model settings.
 
-### 3. Feature Selection
+## Results Reported in the Coursework
 
-Selected applicant and financial attributes as input features. The target variable was `Decision`, representing the housing finance decision.
+- Initial test-set accuracy: **approximately 80.57%**
+- Best cross-validation score during tuning: **approximately 84.87%**
 
-### 4. Train-Test Split
+These scores come from different evaluation procedures and should not be compared as if they were the same metric. Re-run the analysis to verify the values before relying on them in a presentation or interview.
 
-Split the dataset into training and testing sets using an 80:20 ratio and `random_state=10`.
+## Interpretation and Business Relevance
 
-### 5. Decision Tree Classification
+A classifier like this could be studied as a decision-support aid, but accuracy alone does not show whether the model is fair, calibrated, or safe for lending decisions. False approvals and false rejections can have different consequences, so class-specific precision, recall, confusion-matrix results, and subgroup performance should also be examined.
 
-Built a Decision Tree Classifier with `max_depth=2` and trained it on the training data.
+## How to Review the Project
 
-### 6. Model Evaluation
+1. Open `HousingFinance1.pdf` and review the documented workflow and code.
+2. Inspect `HousingFinance1.csv` and verify the target and input variables.
+3. Re-run the code in Google Colab or a local Python environment.
+4. Confirm the reported results and correct any code or evaluation issues before extending the model.
 
-Evaluated predictions using accuracy and a confusion matrix. A heatmap was also created to visualize the classification results.
+## Limitations
 
-### 7. Hyperparameter Tuning
+- This is an academic analysis, not a validated lending system.
+- The reported metrics do not establish performance on new real-world applicants.
+- The original tuning workflow should be reviewed for invalid parameter values and failed fits; only valid, successful runs should be included in final results.
+- Lending-related models require careful fairness, privacy, explainability, and regulatory review.
 
-Used `GridSearchCV` with 10-fold cross-validation to explore different decision tree criteria and maximum depths.
+## Project Status
 
-## 📊 Results
+**Academic project / prototype.** No live production deployment or real lending decision use is claimed.
 
-* **Dataset size:** 1,570 records.
-* **Number of original dataset columns:** 23.
-* **Initial Decision Tree accuracy:** Approximately 80.57%.
-* **Best cross-validation score reported during tuning:** Approximately 84.87%.
+## Learning Outcomes
 
-The initial accuracy was measured on the test set. The 84.87% score was the best cross-validation score reported by the tuning process. These are different evaluation measures and should not be treated as directly equivalent.
+Data preparation, categorical encoding, decision-tree classification, train/test evaluation, confusion-matrix interpretation, and cross-validation.
 
-## 📈 Confusion Matrix
+## Author
 
-The initial model produced the following confusion matrix:
-
-| Actual Class | Predicted 0 | Predicted 1 |
-| ------------ | ----------: | ----------: |
-| 0            |          20 |          52 |
-| 1            |           9 |         233 |
-
-The matrix shows the number of correct and incorrect classifications for each class.
-
-## 🚀 Key Learnings
-
-* Data preprocessing and categorical encoding.
-* Feature selection and train-test splitting.
-* Decision Tree classification.
-* Model evaluation using accuracy and a confusion matrix.
-* Hyperparameter tuning using cross-validation.
-* Visualizing machine learning results.
-
-## ▶️ How to Run
-
-1. Clone or download this repository.
-2. Open the project in Google Colab or Jupyter Notebook.
-3. Upload `HousingFinance1.csv`.
-4. Update the dataset file path in the Python code.
-5. Install any missing Python libraries.
-6. Execute the code cells in the order shown in the project report.
-
-## ⚠️ Limitations
-
-* The reported results do not establish how the model performs on entirely new real-world applicants.
-* The hyperparameter tuning code contains an invalid criterion value (`entorpy` instead of `entropy`), which caused some model fits to fail.
-* The model should be further evaluated and validated before any real lending decision.
-
-## 👨‍🎓 Project Information
-
-**Programme:** Data Analytics Programme
-**Institution:** IIM Sirmaur × Masai
-**Project:** Housing Finance Prediction
-**Primary Algorithm:** Decision Tree Classifier
-**Language:** Python
+Rahul | [GitHub Profile](https://github.com/imrahul11299-netizen)
 
